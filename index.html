@@ -19,52 +19,72 @@
 
     <!--<link href="css/bootstrap.min.css" rel="stylesheet">-->
     <style>
+      :root {
+        --accent: #1a4b8c;
+        --accent-light: #2c6fbb;
+        --accent-bg: #eaf1fa;
+        --accent-soft: #f4f8fd;
+        --text: #243247;
+        --text-soft: #5a6b85;
+        --border: #dce6f2;
+      }
       body {
-      background-color: #eee;
+        background: linear-gradient(160deg, #e3edf8 0%, #f2f6fc 55%, #e9f1fa 100%);
+        background-attachment: fixed;
+        margin: 0;
+        padding: 0;
       }
       .font {font-family: "Times New Roman", Times, serif;}
       .main {
-      width : 900px;
-      margin : 10px auto;
-      border-radius: 15px;
-      background-color : #fff;
-      padding : 40px;
-      box-shadow: 0px 0px 10px #999;
-      font-family: "Helvetica";>
+        width : 920px;
+        margin : 26px auto 40px auto;
+        border-radius: 18px;
+        background-color : #fff;
+        padding : 42px 48px;
+        box-shadow: 0 12px 38px rgba(26, 75, 140, 0.13);
+        border: 1px solid var(--border);
+        font-family: "Helvetica", Arial, sans-serif;
+        color: var(--text);
       }
       .intro {
-      display: block;
-      line-height: 140%;
+        display: block;
+        line-height: 155%;
       }
       .caption {
-      font-size: 25px;
-      font-weight: normal;
-      color: #000;
-      font-family: Constantia, "Lucida Bright", "DejaVu Serif", Georgia, serif;
+        font-size: 30px;
+        font-weight: bold;
+        color: var(--accent);
+        font-family: Constantia, "Lucida Bright", "DejaVu Serif", Georgia, serif;
+        margin-bottom: 2px;
       }
       .caption1 {
-      font-weight: normal;
-      color: #000;
-      font-family: Constantia, "Lucida Bright", "DejaVu Serif", Georgia, serif;
+        font-weight: 600;
+        color: var(--accent-light);
+        font-family: Constantia, "Lucida Bright", "DejaVu Serif", Georgia, serif;
+        font-size: 18px;
+        margin-top: 0;
       }
       a {
-      color: #4682B4;
+      color: var(--accent-light);
       text-decoration: none;
+      transition: color 0.15s ease;
       }
       a:hover {
+      color: var(--accent);
       text-decoration : underline;
       }
-      a:visited { 
-      color : #4682B4;
+      a:visited {
+      color : var(--accent-light);
       }
       img.me {
       margin-left: 5px;
-      margin-right : 25px;
-      border : 0 solid black;
+      margin-right : 28px;
+      border : 4px solid #fff;
       float : left;
-      margin-bottom : 0;
+      margin-bottom : 12px;
       height: 240px;
-      border-radius : 10px; 
+      border-radius : 14px;
+      box-shadow: 0 6px 20px rgba(26, 75, 140, 0.18);
       }
       div.projects {
       margin-top: 20px;
@@ -77,9 +97,23 @@
       }
       .project-thumb {
       width: 250px;
+      border-radius: 10px;
+      box-shadow: 0 3px 12px rgba(26, 75, 140, 0.12);
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+      }
+      a:hover .project-thumb {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 24px rgba(26, 75, 140, 0.25);
       }
       .projects-table {
       margin-top: 20px;
+      }
+      .projects-table tr {
+      transition: background-color 0.15s ease;
+      }
+      .projects-table tr:hover {
+      background-color: var(--accent-soft);
+      border-radius: 10px;
       }
       .description-column {
       padding-left: 30px;
@@ -99,7 +133,7 @@
       }
       .work-column {
       padding-top:5px;
-      padding-top:5px;
+      padding-bottom:5px;
       }
       .thumb-column {
       padding-top:10px;
@@ -107,6 +141,41 @@
       }
       table.pub_table tr {
       outline: thin dotted #666666;
+      }
+      h3 {
+        font-family: Constantia, "Lucida Bright", "DejaVu Serif", Georgia, serif;
+        color: var(--accent);
+        font-size: 22px;
+        border-left: 5px solid var(--accent-light);
+        padding-left: 12px;
+        margin-top: 28px;
+        margin-bottom: 8px;
+      }
+      hr {
+        border: none;
+        height: 1px;
+        background: linear-gradient(to right, var(--border), transparent);
+        margin: 26px 0;
+      }
+      .news ul::-webkit-scrollbar {
+        width: 8px;
+      }
+      .news ul::-webkit-scrollbar-track {
+        background: var(--accent-soft);
+        border-radius: 4px;
+      }
+      .news ul::-webkit-scrollbar-thumb {
+        background: var(--accent-bg);
+        border-radius: 4px;
+      }
+      .news ul::-webkit-scrollbar-thumb:hover {
+        background: var(--accent-light);
+      }
+      .work td img {
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(26, 75, 140, 0.15);
+        vertical-align: middle;
+        margin-right: 6px;
       }
 
     </style>
@@ -118,30 +187,49 @@
       li.font {font-family: Georgia, serif;}
       .ul_s {
       list-style-type: none;
-      margin: 0;
-      padding: 0;
+      margin: 0 0 22px 0;
+      padding: 6px;
       overflow: hidden;
-      background-color: #e9e9e9;
+      background-color: #fff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: 0 3px 12px rgba(26, 75, 140, 0.08);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
       }
 
       .li_s {
-      float: left;
+      list-style: none;
       }
 
       .li_s1 {
-      float: left;
+      list-style: none;
       }
 
       li a1 {
       display: inline-block;
-      color: black;
+      color: var(--text);
       text-align: center;
-      padding: 8px 16px;
+      padding: 8px 18px;
       text-decoration: none;
+      border-radius: 8px;
+      font-size: 15px;
+      transition: background-color 0.15s ease, color 0.15s ease;
       }
 
       li a1:hover {
-      background-color: grey;
+      background-color: var(--accent-bg);
+      color: var(--accent);
+      }
+
+      li.li_s1 a1 {
+      background-color: var(--accent);
+      color: #fff;
+      }
+
+      li.li_s1 a1:hover {
+      background-color: var(--accent-light);
       }
 
     </style>
@@ -149,7 +237,7 @@
   <body>
     <div class="main">
       <ul class="ul_s">
-        <li class='li_s1'><a href="#home"><a1><font color="4682B4">Home</font></a1></a></li>
+        <li class='li_s1'><a href="#home"><a1><font color="white">Home</font></a1></a></li>
         <li class='li_s'><a href="#publications"><a1>Publications</a1></a></li>
         <li class='li_s'><a href="#awards"><a1>Honors &amp; Awards</a1></a></li>
         <li class='li_s'><a href="#skills"><a1>Skills</a1></a></li>
@@ -164,7 +252,7 @@
         <p class="font">
           Email: jhdengvision AT gmail.com, [<a target="_blank" href="https://scholar.google.co.jp/citations?user=XrtJ8mEAAAAJ">Google Scholar</a>], [<a target="_blank" href="https://github.com/kinredon/">GitHub</a>].<br></p>
         <p class="font">During my Ph.D., my research mainly focused on <b>computer vision and transfer learning</b>, especially visual perception tasks such as <b>object detection and semantic segmentation</b>, aiming to build a robust visual system capable of effectively operating in dynamic, open environments. My works cover cross-domain object detection (<a href="https://arxiv.org/abs/2003.00707" target="_blank"><b>UMT</b></a>, CVPR 2021, <b>500+ citations</b>; <a href="https://openaccess.thecvf.com/content/CVPR2023/papers/Deng_Harmonious_Teacher_for_Cross-Domain_Object_Detection_CVPR_2023_paper.pdf" target="_blank"><b>HT</b></a>, CVPR 2023, <b>100+ citations</b>), semantic segmentation (<a href="https://openaccess.thecvf.com/content/ICCV2021/papers/Liu_BAPA-Net_Boundary_Adaptation_and_Prototype_Alignment_for_Cross-Domain_Semantic_Segmentation_ICCV_2021_paper.pdf" target="_blank"><b>BAPA-Net</b></a>, ICCV 2021 <b>Oral</b>), open-vocabulary detection (<a href="https://ieeexplore.ieee.org/document/11258073" target="_blank"><b>ROOT</b></a>, TIP 2026), and source-free domain adaptation (<a href="https://www.aaai.org/AAAI22Papers/AAAI-758.ChuT.pdf" target="_blank"><b>DMCD</b></a>, AAAI 2022 <b>Oral</b>; Balanced Teacher, TCSVT 2024). I was also interested in model efficiency and proposed visual token compression for multimodal LLMs (<a href="https://arxiv.org/abs/2510.24214" target="_blank"><b>SCOPE</b></a>, NeurIPS 2025).</p>
-        <p class="font">Currently, I mainly work on <b>pre-train and mid-train</b> of <b>multimodal/omnimodal foundation models</b>, specifically focusing on topics such as audio-video captioning, understanding, and interaction, as well as long context and memory. If you are interested in my work, please <b>feel free to contact me</b>. I am also open to hosting <b>interns</b> and can provide <b>rich guidance and ample computing resources</b>.</p>
+        <p class="font">Currently, I mainly work on <b>pre-train</b> of <b>multimodal/omnimodal foundation models</b>, specifically focusing on topics such as audio-video captioning, understanding, and interaction, as well as long context and memory. If you are interested in my work, please <b>feel free to contact me</b>. I am also open to hosting <b>interns</b> and can provide <b>rich guidance and ample computing resources</b>.</p>
       </div>
       <hr>
 
@@ -227,6 +315,7 @@
                   </div>
                   <div class="description">
                     <i><b>Jinhong Deng</b>, Limeng Qiao, Guanglu Wan.</i><br>
+                    A holistic visual counting benchmark to evaluate the counting ability of multimodal large language models.
                   </div>
                   <a target="_blank" href="">arXiv preprint, 2026.</a>
                   <div>
@@ -248,6 +337,7 @@
                   </div>
                   <div class="description">
                     <i>Yaxin Gao, Yao Lu, <b>Jinhong Deng</b>, Jiaqi Nie, Zhe Tang, Jian Zhang, Zhaowei Zhu, Shanqing Yu, Qi Xuan, Joey Tianyi Zhou.</i><br>
+                    Compresses long prompts by modeling text as a multiplex graph and pruning it via L&eacute;vy walk-guided graph pruning.
                   </div>
                   <a target="_blank" href="">Knowledge-Based Systems, 2026.</a>
                   <div>
@@ -269,6 +359,7 @@
                   </div>
                   <div class="description">
                     <i>Hengfu Yu, <b>Jinhong Deng</b>, Lixin Duan, Wen Li.</i><br>
+                    Adapts object detectors across domains without requiring any instance-level information.
                   </div>
                   <a target="_blank" href="">arXiv preprint, 2026.</a>
                   <div>
@@ -290,6 +381,7 @@
                   </div>
                   <div class="description">
                     <i>Jinhong Deng, Wen Li, Joey Tianyi Zhou, Yang He</i><br>
+                    Prunes redundant visual tokens in multimodal LLMs with a saliency-coverage oriented strategy for efficient inference.
                   </div>
                   <a target="_blank" href="">NeurIPS 2025.</a>
                   <div>
@@ -311,6 +403,7 @@
                   </div>
                   <div class="description">
                     <i>Yuhang Yang*, <b>Jinhong Deng*</b>, Wen Li, Lixin Duan. * equal contribution.</i><br>
+                    A residual attention mechanism for training-free dense vision-language inference.
                   </div>
                   <a target="_blank" href="">CVPR 2025.</a>
                   <div>
@@ -332,6 +425,7 @@
                   </div>
                   <div class="description">
                     <i>Hengfu Yu*, <b>Jinhong Deng*</b>, Wen Li, Lixin Duan. * equal contribution.</i><br>
+                    An unsupervised criterion to select the best-performing model for domain adaptive object detection.
                   </div>
                   <a target="_blank" href="">Neural Information Processing Systems (NeurIPS), 2024.</a>
                   <div>
@@ -353,6 +447,7 @@
                   </div>
                   <div class="description">
                     <i><b>Jinhong Deng</b>, Wen Li, Lixin Duan.</i><br>
+                    A balanced teacher framework for source-free object detection without accessing any source data.
                   </div>
                   <a target="_blank" href="">IEEE Transactions on Circuits and Systems for Video Technology, 2024.</a>
                   <div>
@@ -374,6 +469,7 @@
                   </div>
                   <div class="description">
                     <i>Yin Zhang, <b>Jinhong Deng</b>, Peidong Liu, Wen Li, Shiyu Zhao.</i><br>
+                    A new benchmark and a noise suppression network for domain-adaptive micro aerial vehicle detection.
                   </div>
                   <a target="_blank" href="">IEEE Transactions on Automation Science and Engineering, 2024.</a>
                   <div>
@@ -396,6 +492,7 @@
                   </div>
                   <div class="description">
                     <i><b>Jinhong Deng</b>, Xiaoyue Zhang, Wen Li, Lixin Duan, Dong Xu.</i><br>
+                    A DETR-based cross-domain detector with spatial-aware and semantic-aware token alignment.
                   </div>
                   <a target="_blank" href="">IEEE Transactions on Multimedia, 2023.</a>
                   <div>
@@ -418,6 +515,7 @@
                   <a target="_blank" href="https://cvpr2023.thecvf.com/">CVPR 2023</a>
                   <div class="description">
                     <i><b>Jinhong Deng</b>, Dongli Xu, Wen Li, Lixin Duan.</i><br>
+                    A harmonious teacher that decouples cross-domain detection into separate classification and localization stages.
                   </div>
                   <div>
                     [<a target="_blank" href='https://openaccess.thecvf.com/content/CVPR2023/papers/Deng_Harmonious_Teacher_for_Cross-Domain_Object_Detection_CVPR_2023_paper.pdf'>paper</a>]
@@ -438,6 +536,7 @@
                   <a target="_blank" href="https://eccv2022.ecva.net/">ECCV 2022</a>
                   <div class="description">
                     <i>Borun Xu, Biao Wang, <b>Jinhong Deng</b>, Jiale Tao, Tiezheng Ge, Yuning Jiang, Wen Li, Lixin Duan.</i><br>
+                    Adapts both motion and appearance for cross-domain motion transfer.
                   </div>
                   <div>
                     [<a target="_blank" href='https://arxiv.org/pdf/2209.14529.pdf'>paper</a>]
@@ -456,6 +555,7 @@
                   <a target="_blank" href="https://cvpr2022.thecvf.com/">CVPR 2022</a>
                   <div class="description">
                     <i>Yahao Liu, <b>Jinhong Deng</b>, Jiale Tao, Tong Chu, Lixin Duan, Wen Li.</i><br>
+                    Mitigates the label shift between domains for cross-domain semantic segmentation.
                   </div>
                   <div>
                     [<a target="_blank" href='https://openaccess.thecvf.com/content/CVPR2022/papers/Liu_Undoing_the_Damage_of_Label_Shift_for_Cross-Domain_Semantic_Segmentation_CVPR_2022_paper.pdf'>paper</a>]
@@ -476,6 +576,7 @@
                   <a target="_blank" href="https://cvpr2022.thecvf.com/">CVPR 2022</a>
                   <div class="description">
                     <i>Dongli Xu, <b>Jinhong Deng</b>, Wen Li.</i> <br>
+                    A revised AP loss with adaptive ranking pair selection for dense object detection.
                   </div>
                   <div>
                     [<a target="_blank" href='https://openaccess.thecvf.com/content/CVPR2022/papers/Xu_Revisiting_AP_Loss_for_Dense_Object_Detection_Adaptive_Ranking_Pair_CVPR_2022_paper.pdf'>paper</a>]
@@ -497,6 +598,7 @@
                   <div class="description">
                     <i>Tongchu, Yahao Liu, <b>Jinhong Deng</b>, Wen Li, Lixin Duan.<br>
                       Accepted as <b>oral</b> paper</i><br>
+                    Denoises unreliable target samples to make classifier discrepancy robust for source-free unsupervised domain adaptation.
                   </div>
                   <div>
                     [<a target="_blank" href='https://www.aaai.org/AAAI22Papers/AAAI-758.ChuT.pdf'>paper</a>]
@@ -516,6 +618,7 @@
                   <div class="description">
                     <i>Yahao Liu, <b>Jinhong Deng</b>, Xinchen Gao, Wen Li, Lixin Duan. <br>
                       Accepted as <b>oral</b> paper</i><br>
+                    Aligns source and target class prototypes and adapts the decision boundary to reduce the domain gap in semantic segmentation.
                   </div>
                   <div>
                     [<a target="_blank" href='https://openaccess.thecvf.com/content/ICCV2021/papers/Liu_BAPA-Net_Boundary_Adaptation_and_Prototype_Alignment_for_Cross-Domain_Semantic_Segmentation_ICCV_2021_paper.pdf'>paper</a>]
@@ -668,9 +771,6 @@
         <ul>
           <li>
             Friends: <a href='http://donglixu.site/'>Dongli Xu</a>.
-          </li>
-          <li>
-            This template is from <a href='http://www.kelei.site/'>kelei</a>.
           </li>
           <li>
             Update: 2026.08
